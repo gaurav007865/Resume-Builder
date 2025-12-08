@@ -1,0 +1,468 @@
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f3f4f6;
+}
+
+/* ================== A4 CONTAINER (COMMON FOR ALL TEMPLATES) ================== */
+.a4-container {
+  width: 210mm;
+  height: 297mm;
+  min-height: 297mm;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+              0 2px 4px -2px rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  transform-origin: top center;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inner padding variants – templates B1/B2/B3/I/P use in JS */
+.a4-padding {
+  padding: 22mm 22mm;
+}
+.a4-padding-compact {
+  padding: 18mm 22mm;
+}
+
+/* FONT UTILITY CLASSES USED BY TEMPLATES */
+.font-serif { font-family: 'Merriweather', serif; }
+.font-lato { font-family: 'Lato', sans-serif; }
+.font-montserrat { font-family: 'Montserrat', sans-serif; }
+
+/* Safe default typography for all resume content */
+.resume-text {
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+/* ================== EDITOR / UI (FORM SIDE) ================== */
+
+.editor-card {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+              0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.editor-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.section-icon {
+  background-color: #eff6ff;
+  color: #3b82f6;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-right: 0.75rem;
+}
+
+.input-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.35rem;
+}
+/* 
+.form-input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.875rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+} */
+.form-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+.form-input:disabled {
+  background-color: #f9fafb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Item Card (Experience/Education/Project) */
+.item-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #ffffff;
+}
+
+/* ================== TEMPLATE SELECTION CARDS ================== */
+
+.template-card {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.template-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+.template-preview {
+  height: 350px;
+  overflow: hidden;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Mini preview A4 */
+.mini-resume-style-container {
+  width: 794px;
+  height: 1122px;
+  transform-origin: top left;
+  background: #ffffff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.mini-resume-style {
+  width: 100%;
+  height: 100%;
+  transform-origin: top left;
+}
+
+/* Wrapper for auto-scaling (main preview) */
+#resume-scale-wrapper {
+  width: 100%;
+  height: 100%;
+  transform-origin: top center;
+}
+
+/* ================== TEMPLATE SELECTION PAGE (LANDING STYLE) ================== */
+
+/* Thoda top spacing, landing jaisa white canvas feel */
+#template-selection-page {
+  padding-top: 4rem;
+}
+
+/* Centered heading + subtitle (like landing page) */
+.ts-header-wrapper {
+  max-width: 48rem;
+  margin: 0 auto 2.5rem auto;
+  text-align: center;
+}
+
+.ts-header-wrapper h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.ts-header-wrapper p {
+  font-size: 1rem;
+  color: #4b5563;
+}
+
+/* Tabs container – centered below header */
+#template-tabs {
+  max-width: 420px;
+  margin: 0 auto 2rem auto;
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Tabs buttons */
+#template-tabs button {
+  flex: 1;
+  text-align: center;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+/* Cards grid – mobile 1 column */
+#template-selection-page .templates-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* ================== LAYOUT / RESPONSIVE (GLOBAL) ================== */
+
+/* Landing */
+#landing-page .text-5xl { font-size: 2.5rem; }
+/* Landing page cards: desktop par 3 columns, mobile par 1 */
+#landing-page .grid-cols-1.md\:grid-cols-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  #landing-page .grid-cols-1.md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Template selection */
+#template-selection-page .templates-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  #template-selection-page .templates-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+#template-selection-page .text-4xl { font-size: 2rem; }
+
+/* Main app (mobile) */
+#main-app-container .lg\:grid-cols-2 {
+  grid-template-columns: 1fr;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+/* Top nav (mobile) */
+#top-nav {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.75rem 1rem;
+  position: relative;
+}
+#top-nav .flex-grow { width: 100%; justify-content: space-between; }
+#top-nav .flex-1.max-w-7xl { padding: 0.5rem; }
+#top-nav .flex-1 { margin-top: 0.5rem; }
+#top-nav .h-6.w-px { display: none; }
+#top-nav .flex.items-center.space-x-4 { margin-bottom: 0.5rem; }
+#top-nav .flex.items-center.space-x-3 {
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+#top-nav #save-status-text { margin-right: 0; }
+#top-nav button {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+/* Form card grid stacking */
+.editor-card .grid-cols-2 { grid-template-columns: 1fr; }
+.editor-card .grid-cols-2 > div:nth-child(2) { margin-top: 1rem; }
+.editor-card .grid-cols-2:not(:last-child) { margin-bottom: 1rem; }
+
+/* Form column order (mobile) */
+#main-form-column {
+  order: 2;
+  overflow-y: visible;
+  padding-right: 0;
+  padding-bottom: 0;
+}
+
+/* Preview column padding */
+#preview-column .flex-1 {
+  padding: 1rem;
+}
+
+/* Preview wrapper – outer box */
+#resume-preview-wrapper {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  box-shadow: none;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  transform: none !important;
+  overflow: visible;
+}
+
+/* Auto-fit container wrapper (base A4 size) */
+#resume-scale-wrapper {
+  width: 210mm;
+  height: 297mm;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+  #landing-page .text-5xl { font-size: 3rem; }
+  #top-nav { flex-direction: row; align-items: center; }
+  #top-nav .flex.items-center.space-x-3 {
+    width: auto;
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+  }
+  #top-nav button { flex-grow: 0; }
+  .editor-card .grid-cols-2 > div:nth-child(2) { margin-top: 0; }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  #main-app-container .lg\:grid-cols-2 {
+    grid-template-columns: minmax(400px, 1fr) 1fr;
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+  #main-form-column {
+    order: 1;
+    height: calc(100vh - 80px);
+    padding-right: 0.5rem;
+  }
+  #preview-column {
+    order: 2;
+    position: sticky;
+    top: 7rem;
+    min-height: calc(100vh - 100px);
+    padding: 0;
+  }
+  #resume-preview-wrapper {
+    transform: scale(0.9) !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -2px rgba(0, 0, 0, 0.06);
+  }
+  #resume-scale-wrapper {
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+  }
+
+  /* Template cards 3-column grid on desktop */
+  #template-selection-page .templates-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* PRINT – direct browser print ke liye bhi same A4 */
+@media print {
+  body { margin: 0; padding: 0; background: none; }
+  #top-nav, #main-form-column { display: none !important; }
+  #main-layout { display: block !important; }
+  #preview-column { width: 100% !important; padding: 0 !important; }
+  .a4-container {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    box-shadow: none;
+    transform: none !important;
+  }
+  #resume-scale-wrapper {
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+/* ================== SECTION SPACING FOR ALL TEMPLATES ================== */
+.resume-section {
+  margin-bottom: 24px; /* 1.5rem - standard line space between sections */
+}
+
+.resume-section:last-child {
+  margin-bottom: 16px; /* Slightly less at very bottom */
+}
+
+/* Compact spacing for dense templates (B1/B2/I1) */
+.resume-section-compact {
+  margin-bottom: 20px;
+}
+
+/* Professional templates with more breathing room */
+.resume-section-professional {
+  margin-bottom: 28px;
+}
+
+/* Ensure consistent top spacing after headers */
+.resume-section > *:first-child {
+  margin-top: 0;
+}
+
+/* Specific template overrides (apply in JS when loading templates) */
+.template-b1 .resume-section { margin-bottom: 20px; }
+.template-b2 .resume-section { margin-bottom: 22px; }
+.template-i1 .resume-section { margin-bottom: 24px; }
+.template-p1 .resume-section { margin-bottom: 28px; }
+/* ================== EVERY DIV के बाद LINE SPACE ================== */
+.resume-content div,
+.resume-section div {
+  margin-bottom: 8px;
+}
+
+
+.resume-content div:last-child,
+#resume-content div:last-child,
+.resume-section div:last-child {
+  margin-bottom: 8px !important; /* आखिरी div को थोड़ा कम space */
+}
+
+/* Section headers के बाद extra space */
+.resume-section h1,
+.resume-section h2,
+.resume-section h3 {
+  margin-bottom: 16px !important;
+}
+
+/* List items को भी space दो */
+.resume-content ul li,
+.resume-content ol li {
+  margin-bottom: 8px !important;
+}
+
+/* Experience/Education/Project entries */
+.experience-entry,
+.education-entry,
+.project-entry {
+  margin-bottom: 16px !important;
+}
+
+.experience-entry:last-child,
+.education-entry:last-child,
+.project-entry:last-child {
+  margin-bottom: 12px !important;
+}
+/* prevents line overlap in canvas */
+#resume-content {
+  line-height: 1.55 !important;
+  letter-spacing: 0 !important;
+}
+
+/* avoid collapsed borders */
+.resume-section h3 {
+  padding-bottom: 4px !important;
+  border-bottom-width: 2px !important;
+}
+
+/* avoid content touching border */
+.a4-padding, .a4-padding-compact {
+  padding-bottom: 30px !important;
+}
+.resume-section h3 {
+  display: block;
+  margin-top: 6px;
+  margin-bottom: 10px !important;
+  line-height: 1.2 !important;
+}
